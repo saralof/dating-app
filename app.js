@@ -1,4 +1,3 @@
-// const path = require('path')
 const express = require('express')
 const mongo = require('mongodb')
 const session = require('express-session')
