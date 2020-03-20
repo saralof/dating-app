@@ -2,7 +2,6 @@ const express = require('express')
 const mongo = require('mongodb')
 const session = require('express-session')
 const ejs = require('ejs');
-const port = 3000;
 
 //setup dotenv
 require('dotenv').config()
@@ -36,5 +35,3 @@ mongo.MongoClient.connect(url, function (err, client) {
     app.get('/', function (req, res) {
         res.render('index')
     })
-    
-    app.listen(port, () => console.log('Example app listening on port ${port}!'));
