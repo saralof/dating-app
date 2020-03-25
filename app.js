@@ -39,3 +39,12 @@ app.listen(process.env.SERVER_PORT, () => {
 app.get('/', function (req, res) {
     res.render('index')
 })
+app.get('/messages', function (req, res) {
+    res.render('messages')
+})
+app.get('/match', function (req, res) {
+    res.render('match')
+})
+app.get('/profile', function (req, res) {
+    res.render('profile')
+})

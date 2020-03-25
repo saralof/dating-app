@@ -1,5 +1,6 @@
 * {
     font-family: Helvetica;
+    font-weight: light;
 }
 
 nav ul{
@@ -41,6 +42,10 @@ main {
     align-items: center;
 }
 
+.homeText h1 {
+    color: #b10139;
+}
+
 .homeText p {
     display: block;
     margin-block-start: 1em;
@@ -58,6 +63,7 @@ main {
     padding: 1em;
     border-radius: 1em;
     align-self: center;
+    font-size: 1em;
 }
 
 
