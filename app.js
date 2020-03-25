@@ -9,6 +9,8 @@ require('dotenv').config()
 //declare express
 const app = express()
 
+const publicDirectoryPath = ('public')
+
 //db setup
 let db = null
 const url = 'mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT
@@ -21,17 +23,19 @@ mongo.MongoClient.connect(url, function (err, client) {
     db = client.db(process.env.DB_NAME)
 })
 
-    app.set('view engine', 'ejs')
-    app.set('views', 'views')
-    app.use(session({
-    resave: false,
-    saveUninitialized: true,
-    secret: process.env.SESSION_SECRET,
-    cookie: { sameSite: true,}
-    }))
-    app.listen(process.env.SERVER_PORT, () => {
+app
+    .set('view engine', 'ejs')
+    .set('views', 'views')
+    .use(express.static(publicDirectoryPath))
+    .use(session({
+        resave: false,
+        saveUninitialized: true,
+        secret: process.env.SESSION_SECRET,
+        cookie: { sameSite: true,}
+        }))
+    .listen(process.env.SERVER_PORT, () => {
         console.log('Server is up on port ' + process.env.SERVER_PORT)
     })
-    app.get('/', function (req, res) {
+    .get('/', function (req, res) {
         res.render('index')
     })
