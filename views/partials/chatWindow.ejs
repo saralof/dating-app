@@ -3,15 +3,18 @@
         <h2>Chat with secondUser</h2>
     </section>
     <section class="chatContent">
-        <p class="mainUserChat" >
-            hoi
-        </p>
-        <p class="secondUserChat">
-            hallo
-        </p>
+        <% for (var message of data) { %>
+
+            <p class="mainUserChat" >
+                <%= message.message %>
+            </p>
+                <p class="secondUserChat">
+                    hallo
+                </p>
+            <% } %>
     </section>
     <form action="/message" method="post">
-        <input name="message" placeholder="type your message">
+        <input id="message" name="message" placeholder="type your message"/>
         <button type="submit">Send</button>
     </form>
 </article>
