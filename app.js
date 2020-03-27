@@ -36,15 +36,26 @@ app.use(session({
 app.listen(process.env.SERVER_PORT, () => {
     console.log('Server is up on port ' + process.env.SERVER_PORT)
 })
-app.get('/', function (req, res) {
-    res.render('index')
-})
-app.get('/messages', function (req, res) {
-    res.render('messages')
-})
-app.get('/match', function (req, res) {
-    res.render('match')
-})
-app.get('/profile', function (req, res) {
-    res.render('profile')
-})
+app.get('/', home)
+app.get('/messages', message)
+app.get('/match', match)
+app.get('/profile', profile)
+app.get('*', error)
+app.get('/', home)
+
+
+function home(request, response) {
+    response.render('index')
+}
+function match(request, response) {
+    response.render('match')
+}
+function profile(request, response) {
+    response.render('profile')
+}
+
+
+
+function error(request, response) {
+    response.render('404')
+}
