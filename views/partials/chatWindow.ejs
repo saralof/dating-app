@@ -1,0 +1,20 @@
+<article class="chatWindow">
+    <section class="chatHeader">
+        <h2>Chat with secondUser</h2>
+    </section>
+    <section class="chatContent">
+        <p class="secondUserChat">
+            hallo
+        </p>
+        <% for (var message of data) { %>
+
+            <p class="mainUserChat" >
+                <%= message.message %>
+            </p>
+            <% } %>
+    </section>
+    <form action="/message" method="post">
+        <input id="message" name="message" placeholder="type your message"/>
+        <button type="submit">Send</button>
+    </form>
+</article>

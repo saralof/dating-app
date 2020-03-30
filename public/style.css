@@ -30,8 +30,15 @@ nav ul li a {
     color: black;
 }
 
-main {
+.home {
     display: flex;
+}
+
+/*home page styling*/
+
+.chat {
+    display: grid;
+    grid-template-columns: 30% 70%;
 }
 
 .homeText{
@@ -81,3 +88,86 @@ main {
     width: 100%;
 }
 
+/*chat window styling*/
+.chatOverview {
+    border: 1px solid darkgray;
+}
+
+.chatOverview article {
+    border-bottom: 1px solid darkgray;
+    display: grid;
+    padding: 0.5em 0;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr auto;
+}
+
+.chatOverview article i {
+    font-size: 3em;
+    padding: 0 0.5em;
+    grid-row: 1 / 3;
+}
+
+.chatOverview article p,
+.chatOverview article span {
+    margin: 0;
+}
+
+.chatWindow {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    border: 1px solid darkgray;
+
+}
+
+.chatWindow .chatHeader {
+    border-bottom: 1px solid darkgray;
+}
+
+.chatWindow .chatContent {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 26em;
+    overflow: scroll;
+}
+
+.secondUserChat {
+    align-self: flex-start;
+    background-color: darkgray;
+    border: darkgray solid 1px;
+    border-radius: 5px;
+    padding: 0.5em;
+    margin: 0.5em 0 0.5em 0.5em;
+}
+
+.mainUserChat {
+    align-self: flex-end;
+    background-color: green;
+    border: green solid 1px;
+    border-radius: 5px;
+    padding: 0.5em;
+    margin: 0.5em 0.5em 0.5em 0;
+}
+
+.mainUserChat i {
+    font-size: 0.4em;
+    padding-right: 1em;
+}
+
+.chatWindow form {
+    align-self: flex-end;
+    width: 100%;
+    display: flex;
+}
+
+.chatWindow input {
+    height: 2.5em;
+    width: 100%;
+}
+
+.chatWindow button {
+    height: 3em;
+    background-color: #d2b2aa;
+    align-self: flex-end;
+}
