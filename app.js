@@ -24,26 +24,27 @@ mongo.MongoClient.connect(url, function (err, client) {
     db = client.db(process.env.DB_NAME)
 })
 
-app.use(bodyParser.urlencoded({extended: true}))
-app.set('view engine', 'ejs')
-app.set('views', 'views')
-app.use(express.static(publicDirectoryPath))
-app.use(session({
+app
+    .use(bodyParser.urlencoded({extended: true}))
+    .set('view engine', 'ejs')
+    .set('views', 'views')
+    .use(express.static(publicDirectoryPath))
+    .use(session({
     resave: false,
     saveUninitialized: true,
     secret: process.env.SESSION_SECRET,
     cookie: { sameSite: true,}
     }))
-app.listen(process.env.SERVER_PORT, () => {
+    .listen(process.env.SERVER_PORT, () => {
     console.log('Server is up on port ' + process.env.SERVER_PORT)
-})
-app.get('/', home)
-app.get('/messages', messages)
-app.get('/match', match)
-app.get('/profile', profile)
-app.get('*', error)
-app.get('/', home)
-app.post('/message', add)
+    })
+    .get('/', home)
+    .get('/messages', messages)
+    .get('/match', match)
+    .get('/profile', profile)
+    .get('*', error)
+    .get('/', home)
+    .post('/message', add)
 
 
 function home(request, response) {
